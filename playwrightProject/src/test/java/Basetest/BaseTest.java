@@ -12,16 +12,16 @@ public class BaseTest {
     public LoginPage loginpage;
     public AddEmployeePage addEmployeePIM;
 
-    @BeforeSuite
+    @BeforeTest
     public void setup() {
-        System.out.println("in setup method");
+       // System.out.println("in setup method");
         in = new InitBrowser();
-        Page page = in.initBrowser("chromium");
+        Page page = in.initBrowser("firefox");
         loginpage = new LoginPage(page);
-        addEmployeePIM = new AddEmployeePage(page);
-        System.out.println(loginpage + " login page object");
+       addEmployeePIM = new AddEmployeePage(page);
+
     }
-    @AfterSuite
+    @AfterTest
     public void tearDown() {
         loginpage.close();
     }
