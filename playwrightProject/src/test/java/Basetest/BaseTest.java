@@ -12,14 +12,14 @@ public class BaseTest {
     public LoginPage loginpage;
     public AddEmployeePage addEmployeePIM;
 
-    @BeforeTest
+    @BeforeClass
     public void setup() {
        // System.out.println("in setup method");
         in = new InitBrowser();
         Page page = in.initBrowser("firefox");
+        page.navigate("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         loginpage = new LoginPage(page);
-       addEmployeePIM = new AddEmployeePage(page);
-
+        addEmployeePIM = new AddEmployeePage(page);
     }
     @AfterTest
     public void tearDown() {
